@@ -74,7 +74,7 @@ push()
   pop()
 
 // define what happens if you eat all apples
-       if (score >= 1) {
+       if (score >= 15) {
          background(255);
          push()
          noStroke()
