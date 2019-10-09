@@ -73,6 +73,7 @@ push()
        text(score ,  windowWidth/2 + 60, windowHeight/15 + 40);
   pop()
 
+// define what happens if you eat all apples
        if (score >= 1) {
          background(255);
          push()
@@ -83,9 +84,10 @@ push()
          textSize(140);
          textStyle(BOLD)
          textAlign(CENTER,CENTER);
-
          text(t, width/2, height/2 - 100);
          text(t2, width/2, height/2 + 50);
+
+// define how the game restart
          button = createButton('PRESS TO RESTORE IT');
          button.style('color', 'black')
          button.style('background-color', 'white');
@@ -97,23 +99,20 @@ push()
          pop()
        }
 
+// define the restart function
 function restore() {
   window.location.reload()
 }
-
-
-
-
-
 }
 
+// apply function "click" on every ball
 function mousePressed() {
   for (var l = 0; l < balls.length; l++) {
   balls[l].click();
   }
 }
 
-
+// define ball (apples) object
 function Ball(_x, _y, _dimension) {
   this.x = _x;
   this.y = _y;
@@ -127,20 +126,19 @@ function Ball(_x, _y, _dimension) {
   var yDir = 1;
   var xDir = 1;
 
+// define what happen when a ball is clicked
   this.click = function() {
     var d = dist(mouseX, mouseY, this.x, this.y)
     if (d < this.dimension) {
-      //this.dimension = 0;
       this.mela = blu;
       segLength = segLength + 1;
       score ++;
-//      this.nmele = this.nmele - 1;
     }
 
 
   }
 
-
+// how apples display
   this.display = function() {
     fill(this.color);
     noStroke();
@@ -148,6 +146,7 @@ function Ball(_x, _y, _dimension) {
     image(this.mela,this.x,this.y,this.dimension,this.dimension);
   }
 
+// movement of apples
   this.move = function() {
     this.x += this.speedx * xDir;
     this.y += this.speedy * yDir;
@@ -162,11 +161,9 @@ function Ball(_x, _y, _dimension) {
     }
   }
 
-
-
-
 }
 
+// define the position of each segment respect to the others
 function dragSegment(j, xin, yin) {
   var dx = xin - xserp[j];
   var dy = yin - yserp[j];
@@ -176,6 +173,7 @@ function dragSegment(j, xin, yin) {
   segment(xserp[j], yserp[j], angle);
 }
 
+// define the form of the snake
 function segment(xserp, yserp, a) {
   push();
   translate(xserp, yserp);
