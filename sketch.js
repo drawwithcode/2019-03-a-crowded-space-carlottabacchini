@@ -5,6 +5,7 @@ var segLength = 5; // length of the snake
 var ballNumber = 5;
 var balls = [];
 var counter = 0;
+var img1;
 
 // setup the snake
 for (var j = 0; j < segNum; j++) {
@@ -13,7 +14,7 @@ for (var j = 0; j < segNum; j++) {
 }
 
 function preload() {
-  img1 = loadImage("Mela.png");
+  img1 = loadImage("Mela.png"); //img apple
 }
 
 
