@@ -1,21 +1,27 @@
 var xserp = [];
 var yserp = [];
-var segNum = 25;
-var segLength = 5;
+var segNum = 25; // segments of the snake
+var segLength = 5; // length of the snake
 var ballNumber = 5;
 var balls = [];
 var counter = 0;
 
+// setup the snake
 for (var j = 0; j < segNum; j++) {
   xserp[j] = 0;
   yserp[j] = 0;
 }
 
+function preload() {
+  img1 = loadImage("Mela.png");
+}
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  img1 = loadImage("Mela.png");
 
-//definizione mele nello spazio
+
+// setup the apples
   for (var i = 0; i < ballNumber; i++) {
     var myBall = new Ball(random(11, width - 100), random(11, height - 100), 30);
     balls.push(myBall);
@@ -27,7 +33,7 @@ function setup() {
 function draw() {
   background(1, 3, 30);
 
-//testo
+//text
   push()
     let s = 'TRY TO GET ALL THE APPLES AND SEE WHAT HAPPENS';
     stroke('white');
@@ -40,8 +46,8 @@ function draw() {
   pop()
 
   for (var i = 0; i < balls.length; i++) {
-    balls[i].move();
-    balls[i].display();
+    balls[i].move();    //call the function move to make the apples effectively moves
+    balls[i].display(); //call the function diplay to make the apples effectively appear
   }
 
   for (var j = 0; j < xserp.length - 1; j++) {
