@@ -76,7 +76,8 @@ function Ball(_x, _y, _dimension) {
   this.click = function() {
     var d = dist(mouseX, mouseY, this.x, this.y)
     if (d < this.dimension) {
-      this.dimension = 0;
+      //this.dimension = 0;
+      img1.hide()
       segLength = segLength + 1;
     }
   }
