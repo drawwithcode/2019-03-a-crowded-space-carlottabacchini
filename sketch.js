@@ -83,7 +83,7 @@ function Ball(_x, _y, _dimension) {
     fill(this.color);
     noStroke();
     //ellipse(this.x, this.y, this.dimension);
-    image(img1,this.x,this.y,32,32)
+    image(img1,this.x,this.y,this.dimension)
   }
 
   this.move = function() {
