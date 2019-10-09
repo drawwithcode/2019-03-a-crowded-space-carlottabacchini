@@ -24,6 +24,17 @@ function setup() {
 function draw() {
   background(1, 3, 30);
 
+  push()
+    let s = 'TRY TO GET ALL THE APPLES AND SEE WHAT HAPPENS';
+    stroke('white');
+    strokeWeight(0.5);
+    noFill()
+    textSize(33);
+    textStyle(BOLD)
+    textAlign(CENTER,CENTER);
+    text(s, width/2, height/15);
+  pop()
+
   for (var i = 0; i < balls.length; i++) {
     balls[i].move();
     balls[i].display();
