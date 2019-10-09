@@ -25,7 +25,7 @@ function setup() {
 
 // setup the apples
   for (var i = 0; i < ballNumber; i++) {
-    var myBall = new Ball(random(11, width - 100), random(11, height - 100), 30);
+    var myBall = new Ball(random(11, width - 100), random(11, height - 100), 60);
     balls.push(myBall);
   }
 
@@ -35,17 +35,7 @@ function setup() {
 function draw() {
   background(1, 3, 30);
 
-//text
-  push()
-    let s = 'TRY TO GET ALL THE APPLES AND SEE WHAT HAPPENS';
-    stroke('white');
-    strokeWeight(0.5);
-    noFill()
-    textSize(33);
-    textStyle(BOLD)
-    textAlign(CENTER,CENTER);
-    text(s, width/2, height/15);
-  pop()
+
 
   for (var i = 0; i < balls.length; i++) {
     balls[i].move();    //call the function move to make the apples effectively moves
@@ -59,6 +49,17 @@ function draw() {
     dragSegment(j + 1, xserp[j], yserp[j]);
   }
 
+  //text
+    push()
+      let s = 'TRY TO GET ALL THE APPLES AND SEE WHAT HAPPENS';
+      stroke('white');
+      strokeWeight(0.5);
+      noFill()
+      textSize(33);
+      textStyle(BOLD)
+      textAlign(CENTER,CENTER);
+      text(s, width/2, height/15);
+    pop()
 
 }
 
