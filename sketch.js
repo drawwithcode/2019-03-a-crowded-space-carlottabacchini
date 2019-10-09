@@ -2,7 +2,7 @@ var xserp = [];
 var yserp = [];
 var segNum = 25;
 var segLength = 5;
-var ballNumber = 25;
+var ballNumber = 5;
 var balls = [];
 var counter = 0;
 
