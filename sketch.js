@@ -15,6 +15,7 @@ for (var j = 0; j < segNum; j++) {
 
 function preload() {
   img1 = loadImage("Mela.png"); //img apple
+  blu = loadImage("none.png");
 }
 
 
@@ -85,7 +86,7 @@ function Ball(_x, _y, _dimension) {
     var d = dist(mouseX, mouseY, this.x, this.y)
     if (d < this.dimension) {
       //this.dimension = 0;
-      this.mela.hide();
+      this.mela = blu;
       segLength = segLength + 1;
     }
   }
