@@ -76,6 +76,7 @@ function Ball(_x, _y, _dimension) {
   this.speedx = random(1, 10);
   this.speedy = random(1, 5);
   this.counter = counter;
+  this.mela = img1;
 
   var yDir = 1;
   var xDir = 1;
@@ -84,7 +85,7 @@ function Ball(_x, _y, _dimension) {
     var d = dist(mouseX, mouseY, this.x, this.y)
     if (d < this.dimension) {
       //this.dimension = 0;
-      img1.hide()
+      this.mela.hide();
       segLength = segLength + 1;
     }
   }
@@ -93,7 +94,7 @@ function Ball(_x, _y, _dimension) {
     fill(this.color);
     noStroke();
     //ellipse(this.x, this.y, this.dimension);
-    image(img1,this.x,this.y,this.dimension,this.dimension);
+    image(this.mela,this.x,this.y,this.dimension,this.dimension);
   }
 
   this.move = function() {
