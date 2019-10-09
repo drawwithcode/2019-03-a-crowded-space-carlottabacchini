@@ -15,6 +15,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   img1 = loadImage("Mela.png");
 
+//definizione mele nello spazio
   for (var i = 0; i < ballNumber; i++) {
     var myBall = new Ball(random(11, width - 100), random(11, height - 100), 30);
     balls.push(myBall);
@@ -26,6 +27,7 @@ function setup() {
 function draw() {
   background(1, 3, 30);
 
+//testo
   push()
     let s = 'TRY TO GET ALL THE APPLES AND SEE WHAT HAPPENS';
     stroke('white');
@@ -83,7 +85,7 @@ function Ball(_x, _y, _dimension) {
     fill(this.color);
     noStroke();
     //ellipse(this.x, this.y, this.dimension);
-    image(img1,this.x,this.y,this.dimension,this.dimension)
+    image(img1,this.x,this.y,this.dimension,this.dimension);
   }
 
   this.move = function() {
