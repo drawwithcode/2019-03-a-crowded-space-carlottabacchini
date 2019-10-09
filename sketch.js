@@ -2,10 +2,13 @@ var xserp = [];
 var yserp = [];
 var segNum = 25; // segments of the snake
 var segLength = 5; // length of the snake
-var ballNumber = 5;
+var ballNumber = 15;
 var balls = [];
 var counter = 0;
 var img1;
+var score = 0
+var ricomincia
+
 
 // setup the snake
 for (var j = 0; j < segNum; j++) {
@@ -25,7 +28,7 @@ function setup() {
 
 // setup the apples
   for (var i = 0; i < ballNumber; i++) {
-    var myBall = new Ball(random(11, width - 100), random(11, height - 100), 60);
+    var myBall = new Ball(random(11, width - 100), random(11, height - 100), random(30,60));
     balls.push(myBall);
   }
 
@@ -36,12 +39,12 @@ function draw() {
   background(1, 3, 30);
 
 
-
   for (var i = 0; i < balls.length; i++) {
     balls[i].move();    //call the function move to make the apples effectively moves
     balls[i].display(); //call the function diplay to make the apples effectively appear
   }
 
+// display the snake
   for (var j = 0; j < xserp.length - 1; j++) {
     strokeWeight(30);
     stroke(48, 146, 26);
@@ -60,6 +63,47 @@ function draw() {
       textAlign(CENTER,CENTER);
       text(s, width/2, height/15);
     pop()
+
+// score
+push()
+    noStroke()
+    textSize(15);
+    textAlign(CENTER,CENTER);
+       text('Eaten apples:' , windowWidth/2, windowHeight/15 + 40);
+       text(score ,  windowWidth/2 + 60, windowHeight/15 + 40);
+  pop()
+
+       if (score >= 1) {
+         background(255);
+         push()
+         noStroke()
+         let t = 'CONGRATS!';
+         let t2 = 'YOUR SNAKE IS FULL.'
+         fill(1, 3, 30)
+         textSize(140);
+         textStyle(BOLD)
+         textAlign(CENTER,CENTER);
+
+         text(t, width/2, height/2 - 100);
+         text(t2, width/2, height/2 + 50);
+         button = createButton('PRESS TO RESTORE IT');
+         button.style('color', 'black')
+         button.style('background-color', 'white');
+         button.style('padding', '15px');
+         button.style('border-color', 'black');
+        button.style('border-radius', '20px');
+         button.position(windowWidth/2-button.width/2, windowHeight / 2 + 200);
+         button.mousePressed(restore);
+         pop()
+       }
+
+function restore() {
+  window.location.reload()
+}
+
+
+
+
 
 }
 
@@ -89,8 +133,13 @@ function Ball(_x, _y, _dimension) {
       //this.dimension = 0;
       this.mela = blu;
       segLength = segLength + 1;
+      score ++;
+//      this.nmele = this.nmele - 1;
     }
+
+
   }
+
 
   this.display = function() {
     fill(this.color);
@@ -112,6 +161,8 @@ function Ball(_x, _y, _dimension) {
       xDir = -xDir;
     }
   }
+
+
 
 
 }
