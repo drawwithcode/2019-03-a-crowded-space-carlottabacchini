@@ -13,6 +13,8 @@ for (var j = 0; j < segNum; j++) {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  img1 = loadImage("Mela.png");
+
   for (var i = 0; i < ballNumber; i++) {
     var myBall = new Ball(random(11, width - 100), random(11, height - 100), 30);
     balls.push(myBall);
@@ -80,7 +82,8 @@ function Ball(_x, _y, _dimension) {
   this.display = function() {
     fill(this.color);
     noStroke();
-    ellipse(this.x, this.y, this.dimension);
+    //ellipse(this.x, this.y, this.dimension);
+    image(mela,this.x,this.y,32,32)
   }
 
   this.move = function() {
